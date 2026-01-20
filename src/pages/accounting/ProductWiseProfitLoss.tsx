@@ -112,7 +112,7 @@ export default function ProductWiseProfitLoss() {
 
             {/* Summary Cards */}
             <div className="grid gap-4 md:grid-cols-4">
-                <Card>
+                <Card className="py-6">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">Total Sales</CardTitle>
                         <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -121,7 +121,7 @@ export default function ProductWiseProfitLoss() {
                         <div className="text-2xl font-bold">RM {summary.total_sales.toLocaleString()}</div>
                     </CardContent>
                 </Card>
-                <Card>
+                <Card className="py-6">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">Total Cost</CardTitle>
                         <TrendingDown className="h-4 w-4 text-muted-foreground" />
@@ -130,7 +130,7 @@ export default function ProductWiseProfitLoss() {
                         <div className="text-2xl font-bold">RM {summary.total_cost.toLocaleString()}</div>
                     </CardContent>
                 </Card>
-                <Card>
+                <Card className="py-6">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">Total Profit</CardTitle>
                         <Package className="h-4 w-4 text-muted-foreground" />
@@ -139,7 +139,7 @@ export default function ProductWiseProfitLoss() {
                         <div className="text-2xl font-bold text-green-600">RM {summary.total_profit.toLocaleString()}</div>
                     </CardContent>
                 </Card>
-                <Card>
+                <Card className="py-6">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">Profit Margin</CardTitle>
                         <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -151,7 +151,7 @@ export default function ProductWiseProfitLoss() {
             </div>
 
             {/* Product Table */}
-            <Card>
+            <Card className="py-6">
                 <CardHeader>
                     <CardTitle>Product Performance</CardTitle>
                     <CardDescription>Detailed breakdown of profit and loss by product</CardDescription>

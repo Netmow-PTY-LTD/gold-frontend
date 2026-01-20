@@ -8,7 +8,6 @@ import {
 } from "@/store/features/salesOrder/salesOrder";
 import { useAppSelector } from "@/store/store";
 import { useGetSettingsInfoQuery } from "@/store/features/admin/settingsApiService";
-import { toast } from "sonner";
 import { SalesPermission, SuperAdminPermission } from "@/config/permissions";
 import {
   ArrowLeft,
@@ -234,23 +233,23 @@ export default function InvoiceDetailsPage() {
               <table className="w-full text-sm">
                 <thead className="bg-gray-50/50 dark:bg-gray-800/50 border-b">
                   <tr className="text-left text-muted-foreground text-xs uppercase tracking-wider">
-                    <th className="px-6 py-4 font-medium">Date</th>
-                    <th className="px-6 py-4 font-medium">Invoice</th>
-                    <th className="px-6 py-4 font-medium">Ref #</th>
-                    <th className="px-6 py-4 font-medium">Method</th>
-                    <th className="px-6 py-4 font-medium">Collected By</th>
-                    <th className="px-6 py-4 font-medium text-right">Amount</th>
-                    <th className="px-6 py-4 font-medium text-center">Actions</th>
+                    <th className="px-6 py-4 font-medium whitespace-nowrap">Date</th>
+                    <th className="px-6 py-4 font-medium whitespace-nowrap">Invoice</th>
+                    <th className="px-6 py-4 font-medium whitespace-nowrap">Ref #</th>
+                    <th className="px-6 py-4 font-medium whitespace-nowrap">Method</th>
+                    <th className="px-6 py-4 font-medium whitespace-nowrap">Collected By</th>
+                    <th className="px-6 py-4 font-medium text-right whitespace-nowrap">Amount</th>
+                    <th className="px-6 py-4 font-medium text-center whitespace-nowrap">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
                   {invoice?.payments && invoice.payments.length > 0 ? (
                     invoice?.payments?.map((item, idx) => (
                       <tr key={idx} className="hover:bg-muted/20 transition-colors">
-                        <td className="px-6 py-4">
+                        <td className="px-6 py-4 whitespace-nowrap">
                           {item?.payment_date ? new Date(item.payment_date).toLocaleDateString() : "-"}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-6 py-4 whitespace-nowrap">
                           {item?.invoice_id ? (
                             <Link
                               to={`/dashboard/sales/invoices/${item.invoice_id}`}
@@ -262,19 +261,19 @@ export default function InvoiceDetailsPage() {
                             <span className="text-muted-foreground text-xs">-</span>
                           )}
                         </td>
-                        <td className="px-6 py-4 font-mono text-xs text-muted-foreground">
+                        <td className="px-6 py-4 font-mono text-xs text-muted-foreground whitespace-nowrap">
                           {item?.reference_number || "-"}
                         </td>
-                        <td className="px-6 py-4 capitalize">
+                        <td className="px-6 py-4 capitalize whitespace-nowrap">
                           <Badge variant="secondary" className="font-normal">{item?.payment_method}</Badge>
                         </td>
-                        <td className="px-6 py-4 text-muted-foreground">
+                        <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">
                           {item?.creator?.name || "-"}
                         </td>
-                        <td className="px-6 py-4 text-right font-bold text-green-600">
+                        <td className="px-6 py-4 text-right font-bold text-green-600 whitespace-nowrap">
                           {currency} {Number(item?.amount || 0).toFixed(2)}
                         </td>
-                        <td className="px-6 py-4 text-center">
+                        <td className="px-6 py-4 text-center whitespace-nowrap">
                           <Link to={`/dashboard/sales/payments/${item?.id}/receipt`}>
                             <Button
                               variant="outline"
