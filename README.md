@@ -56,3 +56,4 @@ Linting: ESLint + TypeScript + React rules
 
 
 
+# gold-frontend
