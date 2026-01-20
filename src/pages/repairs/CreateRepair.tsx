@@ -298,13 +298,13 @@ export default function CreateRepair() {
 
                             {/* Customer Select */}
                             <Card className="shadow-sm border-l-4 border-l-orange-500">
-                                <CardHeader className="bg-orange-50/50 dark:bg-orange-950/10 pb-4">
+                                <CardHeader className="bg-orange-50/50 dark:bg-orange-950/10 py-4 gap-0">
                                     <div className="flex items-center gap-2 text-xl font-semibold text-orange-900 dark:text-orange-100">
                                         <User className="w-5 h-5" />
                                         Customer Information
                                     </div>
                                 </CardHeader>
-                                <CardContent className="pt-6">
+                                <CardContent className="pt-2 pb-6">
                                     <FormField
                                         control={form.control}
                                         name="customer_id"
@@ -469,14 +469,14 @@ export default function CreateRepair() {
                         <div className="lg:col-span-4 space-y-6">
 
                             {/* Summary Card */}
-                            <Card className="shadow-md border-t-4 border-t-green-600 bg-slate-50 dark:bg-slate-900 sticky top-6">
-                                <CardHeader className="pb-4">
+                            <Card className="shadow-md border-t-4 border-t-green-600 bg-slate-50 dark:bg-slate-900 sticky top-6 gap-4">
+                                <CardHeader className="py-4 gap-0">
                                     <CardTitle className="flex items-center gap-2 text-lg">
                                         <FileText className="w-5 h-5 text-green-600" />
                                         Job Summary
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="space-y-6">
+                                <CardContent className="space-y-6 pb-6">
 
                                     {/* Weight Summary */}
                                     <div className="bg-white dark:bg-slate-800 p-3 rounded-lg border flex justify-between items-center mb-4">

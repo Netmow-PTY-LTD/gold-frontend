@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 //import { ImageUploader } from "@/components/form/ImageUploader";
 import { useNavigate } from "react-router";
-import { Check, ChevronDown, Package, Image as ImageIcon, Tag, DollarSign, Truck, CheckCircle2, Layers, Plus, Trash2, X, Scale, Gem } from "lucide-react";
+import { Check, ChevronDown, Package, Image as ImageIcon, Tag, DollarSign, Truck, CheckCircle2, Layers, Plus, Trash2, X, Scale } from "lucide-react";
 import {
   useAddProductMutation,
   useGetAllCategoriesQuery,
@@ -51,7 +51,7 @@ import { BackButton } from "@/components/BackButton";
 const productSchema = z.object({
   sku: z.string().min(1, "Required"),
   name: z.string().min(1, "Required"),
-  description: z.string().optional(),
+  description: z.string().default(""),
   category: z.number().min(1, "Required"),
   unit: z.number().min(1, "Required"),
   price: z.number().min(0, "Price must be at least 0"),
@@ -65,21 +65,21 @@ const productSchema = z.object({
   width: z.number(),
   height: z.number(),
   length: z.number(),
-  is_active: z.boolean().optional(),
-  image: z.string().optional(),
-  gallery_items: z.array(z.string()).optional(),
+  is_active: z.boolean().default(true),
+  image: z.string().default(""),
+  gallery_items: z.array(z.string()).default([]),
   attributes: z.array(z.object({
     name: z.string(),
     values: z.array(z.string())
-  })).optional(),
+  })).default([]),
   // Gold Shop Specific Fields
-  purity: z.string().optional(),
-  gross_weight: z.number().optional().default(0),
-  net_weight: z.number().optional().default(0),
-  making_charge_type: z.string().optional().default('fixed'),
-  making_charge_value: z.number().optional().default(0),
-  stone_weight: z.number().optional().default(0),
-  stone_price: z.number().optional().default(0),
+  purity: z.string().default("916"),
+  gross_weight: z.number().default(0),
+  net_weight: z.number().default(0),
+  making_charge_type: z.string().default('fixed'),
+  making_charge_value: z.number().default(0),
+  stone_weight: z.number().default(0),
+  stone_price: z.number().default(0),
 });
 
 type ProductFormValues = z.infer<typeof productSchema>;

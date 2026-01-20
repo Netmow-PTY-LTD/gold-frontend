@@ -188,7 +188,7 @@ export default function RepairsList() {
             id: "actions",
             header: "Actions",
             cell: ({ row }) => (
-                <div className="flex gap-2 justify-end">
+                <div className="flex gap-2">
                     <Button
                         size="sm"
                         variant="outline"
@@ -271,8 +271,8 @@ export default function RepairsList() {
             </div>
 
             {/* DataTable Card */}
-            <Card className="pt-6 pb-2 border-none shadow-md">
-                <CardHeader className="px-6 border-b pb-4 mb-4">
+            <Card className="pt-6 pb-2 border shadow-md">
+                <CardHeader className="px-6 border-b pb-4 gap-0">
                     <CardTitle>Recent Repair Jobs</CardTitle>
                 </CardHeader>
                 <CardContent className="px-2 sm:px-6">

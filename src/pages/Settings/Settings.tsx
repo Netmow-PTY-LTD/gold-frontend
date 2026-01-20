@@ -42,7 +42,7 @@ export default function Settings() {
       </Card>
 
       {/* Content */}
-      <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
+      <div className="flex flex-col space-y-8 lg:flex-row lg:gap-12 lg:space-y-0">
         <aside className="-mx-4 lg:w-1/5">
           {/* Custom Sidebar that overrides the link behavior for simple state switching if router not set up for sub-routes yet */}
           <nav className="flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1">

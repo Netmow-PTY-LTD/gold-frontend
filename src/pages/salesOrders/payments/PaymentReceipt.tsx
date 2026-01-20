@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { ArrowLeft, Printer, CreditCard, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,7 +60,7 @@ export default function PaymentReceipt() {
                             </div>
                             <p className="text-sm text-gray-500">
                                 {company?.address || "123 Gold Souk Street"}<br />
-                                {company?.city || "Dubai"}, {company?.country || "UAE"}<br />
+                                {(company as any)?.city || "Dubai"}, {(company as any)?.country || "UAE"}<br />
                                 Phone: {company?.phone || "+971 4 123 4567"}<br />
                                 Email: {company?.email || "sales@goldshop.com"}
                             </p>

@@ -155,7 +155,7 @@ export default function RepairDetails() {
                 <div className="lg:col-span-2 space-y-6">
 
                     {/* Item Details */}
-                    <Card className="shadow-sm border-t-4 border-t-orange-500">
+                    <Card className="shadow-sm border-t-4 border-t-orange-500 py-6">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-lg">
                                 <FileText className="w-5 h-5 text-orange-600" />
@@ -204,7 +204,7 @@ export default function RepairDetails() {
                     </Card>
 
                     {/* Timeline */}
-                    <Card>
+                    <Card className="py-6 gap-4">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-lg">
                                 <Clock className="w-5 h-5 text-blue-600" />
@@ -246,36 +246,36 @@ export default function RepairDetails() {
                             <table className="w-full text-sm text-left border-separate border-spacing-0">
                                 <thead className="text-xs text-muted-foreground uppercase bg-muted/80 backdrop-blur-sm sticky top-0 z-10 border-b shadow-sm">
                                     <tr>
-                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90 first:rounded-tl-lg">Date</th>
-                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90">Repair #</th>
-                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90">Reference</th>
-                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90">Method</th>
-                                        <th className="px-6 py-3 font-semibold text-right border-b bg-muted/90">Amount</th>
-                                        <th className="px-6 py-3 font-semibold text-center border-b bg-muted/90 last:rounded-tr-lg">Actions</th>
+                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90 first:rounded-tl-lg whitespace-nowrap">Date</th>
+                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90 whitespace-nowrap">Repair #</th>
+                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90 whitespace-nowrap">Reference</th>
+                                        <th className="px-6 py-3 font-semibold border-b bg-muted/90 whitespace-nowrap">Method</th>
+                                        <th className="px-6 py-3 font-semibold text-right border-b bg-muted/90 whitespace-nowrap">Amount</th>
+                                        <th className="px-6 py-3 font-semibold text-center border-b bg-muted/90 last:rounded-tr-lg whitespace-nowrap">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y border-b">
                                     {/* Initial Deposit if exists */}
                                     {Number(repair.deposit_amount) > 0 && (
                                         <tr className="bg-green-50/30 dark:bg-green-900/10">
-                                            <td className="px-6 py-4">
+                                            <td className="px-6 py-4 whitespace-nowrap">
                                                 {repair.created_at ? format(new Date(repair.created_at), "PP") : "-"}
                                             </td>
-                                            <td className="px-6 py-4">
+                                            <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
                                                     #{repair.repair_number}
                                                 </span>
                                             </td>
-                                            <td className="px-6 py-4 font-mono text-xs text-muted-foreground">
+                                            <td className="px-6 py-4 font-mono text-xs text-muted-foreground whitespace-nowrap">
                                                 Initial Deposit
                                             </td>
-                                            <td className="px-6 py-4 capitalize">
+                                            <td className="px-6 py-4 capitalize whitespace-nowrap">
                                                 <Badge variant="secondary" className="font-normal">{repair.deposit_method || "Cash"}</Badge>
                                             </td>
-                                            <td className="px-6 py-4 text-right font-bold text-green-600">
+                                            <td className="px-6 py-4 text-right font-bold text-green-600 whitespace-nowrap">
                                                 {currency} {Number(repair.deposit_amount).toFixed(2)}
                                             </td>
-                                            <td className="px-6 py-4 text-center">
+                                            <td className="px-6 py-4 text-center whitespace-nowrap">
                                                 <Link to={`/dashboard/repairs/${repair.id}/payments/deposit/receipt`}>
                                                     <Button variant="outline" size="sm" className="h-8">
                                                         <Printer className="w-3.5 h-3.5 mr-1" /> Receipt
@@ -289,24 +289,24 @@ export default function RepairDetails() {
                                     {repair.payments && repair.payments.length > 0 ? (
                                         repair.payments.map((payment) => (
                                             <tr key={payment.id} className="hover:bg-muted/50 transition-colors">
-                                                <td className="px-6 py-4">
+                                                <td className="px-6 py-4 whitespace-nowrap">
                                                     {payment.payment_date ? format(new Date(payment.payment_date), "PP") : "-"}
                                                 </td>
-                                                <td className="px-6 py-4">
+                                                <td className="px-6 py-4 whitespace-nowrap">
                                                     <span className="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
                                                         #{repair.repair_number}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4 font-mono text-xs text-muted-foreground">
+                                                <td className="px-6 py-4 font-mono text-xs text-muted-foreground whitespace-nowrap">
                                                     {payment.notes || "-"}
                                                 </td>
-                                                <td className="px-6 py-4 capitalize">
+                                                <td className="px-6 py-4 capitalize whitespace-nowrap">
                                                     <Badge variant="secondary" className="font-normal">{payment.payment_method}</Badge>
                                                 </td>
-                                                <td className="px-6 py-4 text-right font-bold text-green-600">
+                                                <td className="px-6 py-4 text-right font-bold text-green-600 whitespace-nowrap">
                                                     {currency} {Number(payment.amount).toFixed(2)}
                                                 </td>
-                                                <td className="px-6 py-4 text-center">
+                                                <td className="px-6 py-4 text-center whitespace-nowrap">
                                                     <Link to={`/dashboard/repairs/${repair.id}/payments/${payment.id}/receipt`}>
                                                         <Button variant="outline" size="sm" className="h-8">
                                                             <Printer className="w-3.5 h-3.5 mr-1" /> Receipt
@@ -335,7 +335,7 @@ export default function RepairDetails() {
                 <div className="space-y-6">
 
                     {/* Customer Info */}
-                    <Card>
+                    <Card className="py-6">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-base">
                                 <User className="w-5 h-5 text-indigo-600" />
@@ -361,7 +361,7 @@ export default function RepairDetails() {
                     </Card>
 
                     {/* Financials */}
-                    <Card className="overflow-hidden border-t-4 border-t-green-600">
+                    <Card className="overflow-hidden border-t-4 border-t-green-600 pt-6">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-base">
                                 <DollarSign className="w-5 h-5 text-green-600" />

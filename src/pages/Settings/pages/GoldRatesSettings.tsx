@@ -81,7 +81,7 @@ export default function GoldRatesSettings() {
                     </div>
                 ) : (
                     PURITIES.map((purity) => (
-                        <Card key={purity}>
+                        <Card key={purity} className="py-6 gap-2">
                             <CardHeader className="pb-2">
                                 <CardTitle className="text-lg font-medium">Gold {purity}</CardTitle>
                             </CardHeader>

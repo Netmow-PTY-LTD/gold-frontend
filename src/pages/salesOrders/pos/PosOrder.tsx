@@ -316,7 +316,7 @@ export default function PosOrder() {
                             await addPayment({
                                 order_id: orderRes.data.id,
                                 invoice_id: invoiceRes.data.id,
-                                amount: grandTotal,
+                                amount: grandTotal.toString(),
                                 payment_method: "cash",
                                 payment_date: new Date().toISOString(),
                                 status: "completed"
@@ -457,7 +457,7 @@ export default function PosOrder() {
             {/* RIGHT: Cart / Checkout Form */}
             <div className="w-[400px] flex flex-col h-full">
                 <Form {...form}>
-                    <form onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col">
+                    <form onSubmit={handleSubmit((v) => onSubmit(v, false))} className="h-full flex flex-col">
                         <Card className="flex-1 flex flex-col h-full border-0 shadow-xl rounded-none lg:rounded-xl overflow-hidden">
                             {/* 1. Header & Customer Info */}
                             <CardHeader className="bg-muted/30 pb-4 px-4 border-b space-y-3 pt-4">
