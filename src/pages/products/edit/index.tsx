@@ -50,32 +50,62 @@ import { useAppSelector } from "@/store/store";
 import { BackButton } from "@/components/BackButton";
 
 /* ------------------ ZOD SCHEMA ------------------ */
+interface ProductFormValues {
+  sku: string;
+  name: string;
+  description: string;
+  category: number;
+  unit: number;
+  price: number;
+  costPrice: number;
+  initialStock: number;
+  minStock: number;
+  maxStock: number;
+  purchase_tax: number;
+  sales_tax: number;
+  weight: number;
+  width: number;
+  height: number;
+  length: number;
+  is_active: boolean;
+  image: string;
+  gallery_items: string[];
+  attributes: { name: string; values: string[] }[];
+  purity: string;
+  gross_weight: number;
+  net_weight: number;
+  making_charge_type: string;
+  making_charge_value: number;
+  stone_weight: number;
+  stone_price: number;
+}
+
 const productSchema = z.object({
   sku: z.string().min(1, "Required"),
   name: z.string().min(1, "Required"),
-  description: z.string().optional(),
+  description: z.string().default(""),
   category: z.number().min(1, "Required"),
   unit: z.number().min(1, "Required"),
   price: z.number().min(0, "Price must be at least 0"),
   costPrice: z.number().min(0, "Cost Price must be at least 0"),
-  initialStock: z.number(),
+  initialStock: z.number().default(0),
   minStock: z.number().min(0, "Required"),
-  maxStock: z.number(),
-  purchase_tax: z.number(),
-  sales_tax: z.number(),
-  weight: z.number(),
-  width: z.number(),
-  height: z.number(),
-  length: z.number(),
-  is_active: z.boolean().optional(),
-  image: z.string().nullable().optional().or(z.literal("")),
-  gallery_items: z.array(z.string()).optional(),
+  maxStock: z.number().default(0),
+  purchase_tax: z.number().default(0),
+  sales_tax: z.number().default(0),
+  weight: z.number().default(0),
+  width: z.number().default(0),
+  height: z.number().default(0),
+  length: z.number().default(0),
+  is_active: z.boolean().default(true),
+  image: z.string().default(""),
+  gallery_items: z.array(z.string()).default([]),
   attributes: z.array(z.object({
     name: z.string(),
     values: z.array(z.string())
-  })).optional(),
+  })).default([]),
   // Gold Shop Specific Fields
-  purity: z.string().optional(),
+  purity: z.string().default("916"),
   gross_weight: z.number().default(0),
   net_weight: z.number().default(0),
   making_charge_type: z.string().default('fixed'),
@@ -83,8 +113,6 @@ const productSchema = z.object({
   stone_weight: z.number().default(0),
   stone_price: z.number().default(0),
 });
-
-type ProductFormValues = z.infer<typeof productSchema>;
 
 /* ------------------ PAGE ------------------ */
 export default function EditProductPage() {
@@ -113,7 +141,7 @@ export default function EditProductPage() {
   const currency = useAppSelector((state) => state.currency.value);
 
   const form = useForm<ProductFormValues>({
-    resolver: zodResolver(productSchema),
+    resolver: zodResolver(productSchema) as any,
     defaultValues: {
       sku: "",
       name: "",
