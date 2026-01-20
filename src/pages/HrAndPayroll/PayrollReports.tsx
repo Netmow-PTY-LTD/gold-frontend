@@ -331,7 +331,7 @@ export default function PayrollReports() {
                                 <XAxis type="number" hide />
                                 <YAxis dataKey="name" type="category" width={100} tick={{ fontSize: 12 }} />
                                 <Tooltip
-                                    formatter={(value: number) => value.toLocaleString()}
+                                    formatter={(value: any) => (Number(value) || 0).toLocaleString()}
                                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                                 />
                                 <Bar dataKey="value" fill="#3b82f6" radius={[0, 4, 4, 0]} barSize={20} />
@@ -365,7 +365,7 @@ export default function PayrollReports() {
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                     ))}
                                 </Pie>
-                                <Tooltip formatter={(value: number) => value.toLocaleString()} />
+                                <Tooltip formatter={(value: any) => (Number(value) || 0).toLocaleString()} />
                                 <Legend verticalAlign="bottom" height={36} />
                             </PieChart>
                         </ResponsiveContainer>
