@@ -76,12 +76,12 @@ const productSchema = z.object({
   })).optional(),
   // Gold Shop Specific Fields
   purity: z.string().optional(),
-  gross_weight: z.number().optional().default(0),
-  net_weight: z.number().optional().default(0),
-  making_charge_type: z.string().optional().default('fixed'),
-  making_charge_value: z.number().optional().default(0),
-  stone_weight: z.number().optional().default(0),
-  stone_price: z.number().optional().default(0),
+  gross_weight: z.number().default(0),
+  net_weight: z.number().default(0),
+  making_charge_type: z.string().default('fixed'),
+  making_charge_value: z.number().default(0),
+  stone_weight: z.number().default(0),
+  stone_price: z.number().default(0),
 });
 
 type ProductFormValues = z.infer<typeof productSchema>;
