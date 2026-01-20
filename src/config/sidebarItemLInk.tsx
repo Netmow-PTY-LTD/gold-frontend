@@ -22,69 +22,7 @@ import {
   Briefcase,
   HelpCircle,
 } from "lucide-react";
-import Dashboard from "../pages/dashboard/Dashboard";
-import Products from "../pages/products/Products";
-import CreateProduct from "@/pages/products/create";
-import ProductCategories from "@/pages/products/categories";
-import StockManagement from "@/pages/products/stock";
-import Customers from "@/pages/customer/Customers";
-import AddCustomer from "@/pages/customer/AddCustomer";
-import EditCustomerPage from "@/pages/customer/EditCustomerPage";
-import CustomerViewPage from "@/pages/customer/CustomerViewPage";
-import PosOrder from "@/pages/salesOrders/pos/PosOrder";
-import Orders from "@/pages/salesOrders/order/OrderList";
-import CreateOrderPage from "@/pages/salesOrders/order/createOrder";
-import EditOrderPage from "@/pages/salesOrders/order/editOrder";
-import OrderDetails from "@/pages/salesOrders/order/OrderDetails";
-import Invoices from "@/pages/salesOrders/invoices";
-import InvoiceDetailsPage from "@/pages/salesOrders/invoices/InvoiceDetails";
-import Payments from "@/pages/salesOrders/payments/Payments";
-import PaymentDetails from "@/pages/salesOrders/payments/PaymentDetails";
-import CreatePaymentPage from "@/pages/salesOrders/payments/createPayment";
-import DeliveryPage from "@/pages/salesOrders/delivery/DeliveryPage";
-import ProductDetailsPage from "@/pages/products/ProductDetails";
-import EditProductPage from "@/pages/products/edit";
-import UnitsPage from "@/pages/unit";
-import RepairsList from "@/pages/repairs/RepairsList";
-import CreateRepair from "@/pages/repairs/CreateRepair";
-import RepairDetails from "@/pages/repairs/RepairDetails";
-import SettingsSidebarLayout from "@/pages/Settings/Settings";
-import SuppliersList from "@/pages/suppliers/supplier/suppliersList";
-import AddSupplierPage from "@/pages/suppliers/supplier/AddSupplier";
-import EditSupplierPage from "@/pages/suppliers/supplier/EditSupplier";
-import PurchaseOrdersList from "@/pages/suppliers/purchaseOrder/PurchaseOrdersList";
-import CreatePurchaseOrderPage from "@/pages/suppliers/purchaseOrder/CreatePurchaseOrderPage";
-import ViewPurchaseOrderPage from "@/pages/suppliers/purchaseOrder/ViewPurchaseOrderPage";
-import EditPurchaseOrderPage from "@/pages/suppliers/purchaseOrder/EditPurchaseOrderPage";
-import PurchaseInvoicesList from "@/pages/suppliers/purchaseOrderInvoices/PurchaseInvoicesList";
-import PurchaseInvoicesDetails from "@/pages/suppliers/purchaseOrderInvoices/PurchaseInvoicesDetails";
-import PurchaseInvoicePrintPreview from "@/pages/suppliers/purchaseOrderInvoices/PurchaseInvoicePrintPreview";
-import PurchasePayments from "@/pages/suppliers/purchasePayments/PurchasePayments";
-import PurchasePaymentsDetails from "@/pages/suppliers/purchasePayments/PurchasePaymentsDetails";
-import CreatePurchasePayments from "@/pages/suppliers/purchasePayments/CreatePurchasePayments";
-import SalesReportsPage from "@/pages/reports/SalesReports";
-import InventoryReports from "@/pages/reports/InventoryReports";
-import StaffsList from "@/pages/staffs";
-import AddStaffPage from "@/pages/staffs/add";
-import EditStaffPage from "@/pages/staffs/edit";
-import StaffDetailsPage from "@/pages/staffs/StaffDetails";
-import HrPayrollOverview from "@/pages/HrAndPayroll/HrPayrollOverview";
-import PayrollRuns from "@/pages/HrAndPayroll/PayrollRuns";
-import Payslips from "@/pages/HrAndPayroll/Payslips";
-import PayrollReports from "@/pages/HrAndPayroll/PayrollReports";
-import Accounting from "@/pages/accounting/Accounting";
-import ChartOfAccounts from "@/pages/accounting/ChartOfAccounts";
-import Transactions from "@/pages/accounting/Transactions";
-import Income from "@/pages/accounting/Income";
-import Expenses from "@/pages/accounting/Expenses";
-import AddIncomePage from "@/pages/accounting/AddIncomePage";
-import AddExpanse from "@/pages/accounting/AddExpanse";
-import TrialBalance from "@/pages/accounting/TrialBalance";
-import ProfitAndLoss from "@/pages/accounting/ProfitAndLoss";
-import ProductWiseProfitLoss from "@/pages/accounting/ProductWiseProfitLoss";
-import JournalReport from "@/pages/accounting/JournalReport";
-import LedgerReport from "@/pages/accounting/LedgerReport";
-import Help from "@/pages/help/Help";
+import { lazy } from "react";
 import {
   SuperAdminPermission,
   ProductPermission,
@@ -96,6 +34,71 @@ import {
   StaffPermission,
   AccountingPermission,
 } from "./permissions";
+
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
+const Products = lazy(() => import("../pages/products/Products"));
+const CreateProduct = lazy(() => import("@/pages/products/create"));
+const ProductCategories = lazy(() => import("@/pages/products/categories"));
+const StockManagement = lazy(() => import("@/pages/products/stock"));
+const Customers = lazy(() => import("@/pages/customer/Customers"));
+const AddCustomer = lazy(() => import("@/pages/customer/AddCustomer"));
+const EditCustomerPage = lazy(() => import("@/pages/customer/EditCustomerPage"));
+const CustomerViewPage = lazy(() => import("@/pages/customer/CustomerViewPage"));
+const PosOrder = lazy(() => import("@/pages/salesOrders/pos/PosOrder"));
+const Orders = lazy(() => import("@/pages/salesOrders/order/OrderList"));
+const CreateOrderPage = lazy(() => import("@/pages/salesOrders/order/createOrder"));
+const EditOrderPage = lazy(() => import("@/pages/salesOrders/order/editOrder"));
+const OrderDetails = lazy(() => import("@/pages/salesOrders/order/OrderDetails"));
+const Invoices = lazy(() => import("@/pages/salesOrders/invoices"));
+const InvoiceDetailsPage = lazy(() => import("@/pages/salesOrders/invoices/InvoiceDetails"));
+const Payments = lazy(() => import("@/pages/salesOrders/payments/Payments"));
+const PaymentDetails = lazy(() => import("@/pages/salesOrders/payments/PaymentDetails"));
+const CreatePaymentPage = lazy(() => import("@/pages/salesOrders/payments/createPayment"));
+const DeliveryPage = lazy(() => import("@/pages/salesOrders/delivery/DeliveryPage"));
+const ProductDetailsPage = lazy(() => import("@/pages/products/ProductDetails"));
+const EditProductPage = lazy(() => import("@/pages/products/edit"));
+const UnitsPage = lazy(() => import("@/pages/unit"));
+const RepairsList = lazy(() => import("@/pages/repairs/RepairsList"));
+const CreateRepair = lazy(() => import("@/pages/repairs/CreateRepair"));
+const RepairDetails = lazy(() => import("@/pages/repairs/RepairDetails"));
+const SettingsSidebarLayout = lazy(() => import("@/pages/Settings/Settings"));
+const SuppliersList = lazy(() => import("@/pages/suppliers/supplier/suppliersList"));
+const AddSupplierPage = lazy(() => import("@/pages/suppliers/supplier/AddSupplier"));
+const EditSupplierPage = lazy(() => import("@/pages/suppliers/supplier/EditSupplier"));
+const PurchaseOrdersList = lazy(() => import("@/pages/suppliers/purchaseOrder/PurchaseOrdersList"));
+const CreatePurchaseOrderPage = lazy(() => import("@/pages/suppliers/purchaseOrder/CreatePurchaseOrderPage"));
+const ViewPurchaseOrderPage = lazy(() => import("@/pages/suppliers/purchaseOrder/ViewPurchaseOrderPage"));
+const EditPurchaseOrderPage = lazy(() => import("@/pages/suppliers/purchaseOrder/EditPurchaseOrderPage"));
+const PurchaseInvoicesList = lazy(() => import("@/pages/suppliers/purchaseOrderInvoices/PurchaseInvoicesList"));
+const PurchaseInvoicesDetails = lazy(() => import("@/pages/suppliers/purchaseOrderInvoices/PurchaseInvoicesDetails"));
+const PurchaseInvoicePrintPreview = lazy(() => import("@/pages/suppliers/purchaseOrderInvoices/PurchaseInvoicePrintPreview"));
+const PurchasePayments = lazy(() => import("@/pages/suppliers/purchasePayments/PurchasePayments"));
+const PurchasePaymentsDetails = lazy(() => import("@/pages/suppliers/purchasePayments/PurchasePaymentsDetails"));
+const CreatePurchasePayments = lazy(() => import("@/pages/suppliers/purchasePayments/CreatePurchasePayments"));
+const SalesReportsPage = lazy(() => import("@/pages/reports/SalesReports"));
+const InventoryReports = lazy(() => import("@/pages/reports/InventoryReports"));
+const StaffsList = lazy(() => import("@/pages/staffs"));
+const AddStaffPage = lazy(() => import("@/pages/staffs/add"));
+const EditStaffPage = lazy(() => import("@/pages/staffs/edit"));
+const StaffDetailsPage = lazy(() => import("@/pages/staffs/StaffDetails"));
+const HrPayrollOverview = lazy(() => import("@/pages/HrAndPayroll/HrPayrollOverview"));
+const PayrollRuns = lazy(() => import("@/pages/HrAndPayroll/PayrollRuns"));
+const Payslips = lazy(() => import("@/pages/HrAndPayroll/Payslips"));
+const PayrollReports = lazy(() => import("@/pages/HrAndPayroll/PayrollReports"));
+const Accounting = lazy(() => import("@/pages/accounting/Accounting"));
+const ChartOfAccounts = lazy(() => import("@/pages/accounting/ChartOfAccounts"));
+const Transactions = lazy(() => import("@/pages/accounting/Transactions"));
+const Income = lazy(() => import("@/pages/accounting/Income"));
+const Expenses = lazy(() => import("@/pages/accounting/Expenses"));
+const AddIncomePage = lazy(() => import("@/pages/accounting/AddIncomePage"));
+const AddExpanse = lazy(() => import("@/pages/accounting/AddExpanse"));
+const TrialBalance = lazy(() => import("@/pages/accounting/TrialBalance"));
+const ProfitAndLoss = lazy(() => import("@/pages/accounting/ProfitAndLoss"));
+const ProductWiseProfitLoss = lazy(() => import("@/pages/accounting/ProductWiseProfitLoss"));
+const JournalReport = lazy(() => import("@/pages/accounting/JournalReport"));
+const LedgerReport = lazy(() => import("@/pages/accounting/LedgerReport"));
+const Help = lazy(() => import("@/pages/help/Help"));
+
 
 export const sidebarItemLink = [
   // DASHBOARD

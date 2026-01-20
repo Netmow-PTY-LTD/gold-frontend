@@ -1,6 +1,8 @@
 
 
+import { Suspense } from "react";
 import { Navigate, type RouteObject } from "react-router";
+import { Loader2 } from "lucide-react";
 import type { TUserPath } from "../types/sidebar.types";
 import { PermissionsGurd } from "@/routes/PermissionsGurd";
 
@@ -31,21 +33,31 @@ export const generateRoutes = (items: TUserPath[], parentPath = ""): RouteObject
       }
     }
 
-    const wrapWithPermission = (element: React.ReactNode) => {
+    const wrapWithPermissionAndSuspense = (element: React.ReactNode) => {
+      const content = (
+        <Suspense fallback={
+          <div className="flex items-center justify-center h-[500px]">
+            <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+          </div>
+        }>
+          {element}
+        </Suspense>
+      );
+
       if (item.allowedPermissions && item.allowedPermissions.length > 0) {
         return (
           <PermissionsGurd allowedPermissions={item.allowedPermissions}>
-            {element}
+            {content}
           </PermissionsGurd>
         );
       }
-      return element;
+      return content;
     };
 
     if (item.items && item.items.length > 0 && item.layout) {
       routes.push({
         path: relativePath + "/*",
-        element: wrapWithPermission(item.layout),
+        element: wrapWithPermissionAndSuspense(item.layout),
         children: [
           {
             index: true,
@@ -53,7 +65,7 @@ export const generateRoutes = (items: TUserPath[], parentPath = ""): RouteObject
           },
           ...item.items.map((child) => ({
             path: child.url.split("/").pop(),
-            element: wrapWithPermission(child.element || <DummyPage title={child.title} />),
+            element: wrapWithPermissionAndSuspense(child.element || <DummyPage title={child.title} />),
           })),
         ],
       });
@@ -63,7 +75,7 @@ export const generateRoutes = (items: TUserPath[], parentPath = ""): RouteObject
     // Add route
     routes.push({
       path: relativePath,
-      element: wrapWithPermission(item.element || <DummyPage title={item.title} />),
+      element: wrapWithPermissionAndSuspense(item.element || <DummyPage title={item.title} />),
     });
 
     if (item.items && item.items.length > 0) {
