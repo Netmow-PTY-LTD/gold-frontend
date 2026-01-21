@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
-    Activity,
+    Activity as ActivityIcon,
     CheckCircle2,
     Clock,
     Layers,
@@ -13,7 +13,7 @@ export default function ProductionDashboard() {
             label: "Active Productions",
             value: 8,
             change: "+2 from yesterday",
-            icon: <Activity className="w-5 h-5 text-blue-600" />,
+            icon: <ActivityIcon className="w-5 h-5 text-blue-600" />,
             className: "border-l-4 border-blue-600",
         },
         {
