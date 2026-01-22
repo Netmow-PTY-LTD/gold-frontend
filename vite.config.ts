@@ -85,9 +85,9 @@ export default defineConfig({
               return 'vendor-utils';
             }
 
-            // Remaining node_modules (including lucide-react)
-            // Let Vite handle lucide-react automatically to avoid circular dependency issues
-            return 'vendor-other';
+            // Let Vite handle lucide-react and other remaining dependencies automatically
+            // to avoid circular dependency issues and implementation errors
+            return;
           }
 
           // Split application code by route/feature
