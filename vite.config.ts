@@ -29,7 +29,7 @@ export default defineConfig({
         manualChunks: (id) => {
           // Split node_modules into separate chunks
           if (id.includes('node_modules')) {
-            // Core React libraries
+            // Core React libraries - bundle together to avoid circular dependencies
             if (id.includes('react') || id.includes('react-dom') || id.includes('react-is')) {
               return 'vendor-react-core';
             }
@@ -47,11 +47,6 @@ export default defineConfig({
             // Charts
             if (id.includes('recharts')) {
               return 'vendor-recharts';
-            }
-
-            // Icons
-            if (id.includes('lucide-react')) {
-              return 'vendor-lucide';
             }
 
             // Radix UI components
@@ -90,7 +85,8 @@ export default defineConfig({
               return 'vendor-utils';
             }
 
-            // Remaining node_modules
+            // Remaining node_modules (including lucide-react)
+            // Let Vite handle lucide-react automatically to avoid circular dependency issues
             return 'vendor-other';
           }
 
