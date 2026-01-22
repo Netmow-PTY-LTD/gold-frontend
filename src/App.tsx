@@ -22,7 +22,6 @@ const APP = () => {
   useAppSettings(settings?.data);
 
 
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Hero Section */}
