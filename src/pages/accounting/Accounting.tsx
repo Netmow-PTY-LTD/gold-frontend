@@ -3,16 +3,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  Legend,
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
 } from "recharts";
 import { Plus, Calendar, CalendarDays, CalendarRange, CalendarClock, ArrowUpRight, ArrowDownLeft } from "lucide-react";
 import { Link } from "react-router";
@@ -54,9 +54,9 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 // Dummy Recent Activity
 const recentActivity = [
   { id: 1, date: new Date(), description: "Consulting Fee Received", amount: 1500, type: "income" },
-  { id: 2, date: new Date(), description: "Office Rent Payment", amount: 2000, type: "expense" },
-  { id: 3, date: new Date(Date.now() - 86400000), description: "Client Payment", amount: 3500, type: "income" },
-  { id: 4, date: new Date(Date.now() - 86400000 * 2), description: "Stationery Purchase", amount: 200, type: "expense" },
+  { id: 2, date: new Date(), description: "Office Supplies Purchase", amount: 120, type: "expense" },
+  { id: 3, date: new Date(), description: "Software Subscription", amount: 45, type: "expense" },
+  { id: 4, date: new Date(), description: "New Client Deposit", amount: 2000, type: "income" },
   { id: 5, date: new Date(Date.now() - 86400000 * 3), description: "Utility Bill", amount: 450, type: "expense" },
 ];
 
